@@ -7,6 +7,10 @@ type User {
     savedBooks: [Book]
 }
 
+type Query {
+    me: User
+}
+
 type Book {
     bookId: ID!
     authors: [String]

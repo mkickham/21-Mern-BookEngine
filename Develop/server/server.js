@@ -10,7 +10,7 @@ const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth')
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3006;
 
 const server = new ApolloServer({ 
   typeDefs,
@@ -37,6 +37,7 @@ if (process.env.NODE_ENV === 'production') {
 
 db.once('open', () => {
   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
+  console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
 });
 
 startApolloServer();
